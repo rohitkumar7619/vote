@@ -3,120 +3,362 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Contact Us</title>
+    <title>Meet Our Team | Contact Us</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
+      :root {
+        --primary-color: #5a4fcf;
+        --secondary-color: #7b72e9;
+        --text-color: #2d3748;
+        --light-color: #f8f9fa;
+        --dark-color: #1a202c;
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      
       body {
-        background: linear-gradient(90deg, #c7c5f4, #776bcc);
+        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        color: var(--text-color);
+        line-height: 1.6;
         display: flex;
         flex-direction: column;
-        align-items: center;
-        justify-content: center;
         min-height: 100vh;
-        position: relative;
-        padding-bottom: 60px;
       }
-
-      .team-container {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 20px;
-        padding: 20px;
+      
+      .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
       }
-
-      .team-member {
+      
+      header {
         text-align: center;
-        max-width: 250px;
+        margin-bottom: 3rem;
       }
-
-      .team-member img {
+      
+      h1 {
+        font-size: 2.5rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+        position: relative;
+        display: inline-block;
+      }
+      
+      h1::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: var(--secondary-color);
+        border-radius: 2px;
+      }
+      
+      .subtitle {
+        font-size: 1.1rem;
+        color: var(--text-color);
+        opacity: 0.8;
+        max-width: 700px;
+        margin: 0 auto;
+      }
+      
+      .team-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+      }
+      
+      .team-member {
+        background: white;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        text-align: center;
+        padding: 2rem 1.5rem;
+      }
+      
+      .team-member:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+      }
+      
+      .member-image {
         width: 150px;
         height: 150px;
         border-radius: 50%;
         object-fit: cover;
+        border: 5px solid rgba(90, 79, 207, 0.1);
+        margin: 0 auto 1.5rem;
+        transition: border-color 0.3s ease;
       }
-
-      h3 {
-        margin-top: 10px;
-        font-size: 18px;
+      
+      .team-member:hover .member-image {
+        border-color: rgba(90, 79, 207, 0.3);
       }
-
-      p {
-        font-size: 14px;
-        color: #555;
+      
+      .member-name {
+        font-size: 1.3rem;
+        color: var(--dark-color);
+        margin-bottom: 0.5rem;
       }
-
-      .bio {
-        display: none;
-        font-size: 14px;
-        margin-top: 10px;
+      
+      .member-position {
+        color: var(--primary-color);
+        font-weight: 600;
+        margin-bottom: 1rem;
+        font-size: 0.95rem;
       }
-
+      
+      .member-bio {
+        color: var(--text-color);
+        font-size: 0.95rem;
+        margin-bottom: 1.5rem;
+        height: 0;
+        overflow: hidden;
+        transition: height 0.3s ease;
+      }
+      
+      .member-bio.active {
+        height: auto;
+        margin-bottom: 1.5rem;
+      }
+      
       .bio-toggle {
-        background: none;
+        background: var(--primary-color);
+        color: white;
         border: none;
-        color: #007bff;
+        padding: 0.6rem 1.2rem;
+        border-radius: 30px;
         cursor: pointer;
-        font-size: 14px;
-        margin-top: 5px;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      .bio-toggle:hover {
+        background: var(--secondary-color);
+        transform: translateY(-2px);
+      }
+      
+      .bio-toggle i {
+        margin-left: 5px;
+        transition: transform 0.3s ease;
+      }
+      
+      .bio-toggle.active i {
+        transform: rotate(180deg);
+      }
+      
+      .social-links {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+      
+      .social-links a {
+        color: var(--primary-color);
+        background: rgba(90, 79, 207, 0.1);
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 0.3s ease;
+      }
+      
+      .social-links a:hover {
+        background: var(--primary-color);
+        color: white;
+        transform: translateY(-3px);
+      }
+      
+      .contact-info {
+        background: white;
+        border-radius: 10px;
+        padding: 2rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin-top: 2rem;
+        text-align: center;
+      }
+      
+      .contact-info h2 {
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+      }
+      
+      .contact-details {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 2rem;
+      }
+      
+      .contact-item {
+        display: flex;
+        align-items: center;
+        gap: 0.8rem;
+      }
+      
+      .contact-icon {
+        background: rgba(90, 79, 207, 0.1);
+        color: var(--primary-color);
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      
+      @media (max-width: 768px) {
+        .team-container {
+          grid-template-columns: 1fr;
+        }
+        
+        h1 {
+          font-size: 2rem;
+        }
       }
     </style>
   </head>
   <body>
     <%- include('partials/navbar') %>
-    <div class="team-container">
-      <div class="team-member">
-        <img src="/images/person1.jpg" alt="Person 1" />
-        <h3>Nikhil Kamath</h3>
-        <p>Co-founder & CFO</p>
-        <button class="bio-toggle">Bio ▼</button>
-        <p class="bio">
-          Nikhil is an astute and experienced investor, leading financial
-          planning at Zerodha. He is an avid reader and enjoys chess.
-        </p>
+    
+    <div class="container">
+      <header>
+        <h1>Meet Our Team</h1>
+        <p class="subtitle">Get to know the talented individuals who make our company successful. We're passionate about what we do and committed to delivering excellence.</p>
+      </header>
+      
+      <div class="team-container">
+        <div class="team-member">
+          <img src="../public/images/IMG_20250402_152225.jpg" alt="Nikhil Kamath" class="member-image">
+          <h3 class="member-name">Nikhil Kamath</h3>
+          <p class="member-position">Co-founder & CFO</p>
+          <div class="member-bio">
+            <p>Nikhil brings over 15 years of financial expertise to our team. With a background in investment banking and venture capital, he ensures our financial strategies align with our growth objectives.</p>
+          </div>
+          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="../public/images/IMG_20250402_153107.jpg" alt="Dr. Kailash Nadh" class="member-image">
+          <h3 class="member-name">Dr. Kailash Nadh</h3>
+          <p class="member-position">Chief Technology Officer</p>
+          <div class="member-bio">
+            <p>Dr. Nadh holds a PhD in Computer Science and leads our technology vision. With expertise in AI and machine learning, he drives innovation across all our technical solutions.</p>
+          </div>
+          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-github"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="../public/images/WhatsApp Image 2025-04-02 at 16.20.56_4003b021.jpg" alt="Venu Madhav" class="member-image">
+          <h3 class="member-name">Venu Madhav</h3>
+          <p class="member-position">Chief Operations Officer</p>
+          <div class="member-bio">
+            <p>Venu oversees our daily operations with a focus on efficiency and scalability. His operational strategies have helped us expand to three new markets in the past year.</p>
+          </div>
+          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
+        
+        <div class="team-member">
+          <img src="../public/images/WhatsApp Image 2025-04-02 at 16.22.36_8a2bb900.jpg" alt="Rohit Sharma" class="member-image">
+          <h3 class="member-name">Rohit Sharma</h3>
+          <p class="member-position">Head of Marketing</p>
+          <div class="member-bio">
+            <p>Rohit's creative campaigns have increased our brand awareness by 300% in two years. He specializes in digital marketing strategies that drive engagement and conversions.</p>
+          </div>
+          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <div class="social-links">
+            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fas fa-envelope"></i></a>
+          </div>
+        </div>
       </div>
-
-      <div class="team-member">
-        <img src="/images/person2.jpg" alt="Person 2" />
-        <h3>Dr. Kailash Nadh</h3>
-        <p>CTO</p>
-        <button class="bio-toggle">Bio ▼</button>
-        <p class="bio">
-          Kailash is the chief technology officer, driving innovation and
-          engineering excellence at Zerodha.
-        </p>
-      </div>
-
-      <div class="team-member">
-        <img src="/images/person3.jpg" alt="Person 3" />
-        <h3>Venu Madhav</h3>
-        <p>COO</p>
-        <button class="bio-toggle">Bio ▼</button>
-        <p class="bio">
-          Venu is the chief operations officer, ensuring seamless management and
-          operational efficiency.
-        </p>
-      </div>
-
-      <div class="team-member">
-        <img src="/images/person4.jpg" alt="Person 4" />
-        <h3>Rohit Sharma</h3>
-        <p>Head of Marketing</p>
-        <button class="bio-toggle">Bio ▼</button>
-        <p class="bio">
-          Rohit leads the marketing team, focusing on branding and customer
-          engagement strategies.
-        </p>
+      
+      <div class="contact-info">
+        <h2>Get In Touch</h2>
+        <div class="contact-details">
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-map-marker-alt"></i>
+            </div>
+            <div>
+              <h4>Location</h4>
+              <p>123 Business Ave, City</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-phone-alt"></i>
+            </div>
+            <div>
+              <h4>Phone</h4>
+              <p>+1 (555) 123-4567</p>
+            </div>
+          </div>
+          
+          <div class="contact-item">
+            <div class="contact-icon">
+              <i class="fas fa-envelope"></i>
+            </div>
+            <div>
+              <h4>Email</h4>
+              <p>info@company.com</p>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
+    
     <%- include('partials/footer') %>
+    
     <script>
       document.querySelectorAll(".bio-toggle").forEach((button) => {
         button.addEventListener("click", () => {
-          const bio = button.nextElementSibling;
-          bio.style.display = bio.style.display === "block" ? "none" : "block";
-          button.textContent =
-            bio.style.display === "block" ? "Bio ▲" : "Bio ▼";
+          const memberCard = button.closest('.team-member');
+          const bio = memberCard.querySelector('.member-bio');
+          
+        
+          bio.classList.toggle('active');
+          button.classList.toggle('active');
+          
+          if (bio.classList.contains('active')) {
+            button.innerHTML = 'Hide Bio <i class="fas fa-chevron-up"></i>';
+          } else {
+            button.innerHTML = 'Read Bio <i class="fas fa-chevron-down"></i>';
+          }
         });
       });
     </script>
