@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Voting App</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        background: linear-gradient(135deg, #6a11cb, #2575fc);
+        color: #fff;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+      }
+
+      p {
+        font-size: 1.2rem;
+        margin-bottom: 20px;
+        color: #e0e0e0;
+      }
+
+      a {
+        display: inline-block;
+        padding: 10px 20px;
+        margin: 5px;
+        font-size: 1rem;
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.3);
+        border-radius: 25px;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        background-color: rgba(255, 255, 255, 0.2);
+        border-color: rgba(255, 255, 255, 0.5);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <h1>Welcome to the Voting App</h1>
+    <p>Please log in or register to vote.</p>
+    <div>
+      <a href="/login">Login</a>
+      <a href="/register">Register</a>
+    </div>
+    <%- include('partials/footer') %>
+  </body>
+</html>
