@@ -88,22 +88,21 @@
       }
       
       .team-member:hover {
-        transform: translateY(-10px);
+        transform: translateY(-5px);
         box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
       }
       
-      .member-image {
-        width: 150px;
-        height: 150px;
+      .member-icon {
+        width: 80px;
+        height: 80px;
         border-radius: 50%;
-        object-fit: cover;
-        border: 5px solid rgba(90, 79, 207, 0.1);
+        background: rgba(90, 79, 207, 0.1);
+        color: var(--primary-color);
+        display: flex;
+        align-items: center;
+        justify-content: center;
         margin: 0 auto 1.5rem;
-        transition: border-color 0.3s ease;
-      }
-      
-      .team-member:hover .member-image {
-        border-color: rgba(90, 79, 207, 0.3);
+        font-size: 2rem;
       }
       
       .member-name {
@@ -117,48 +116,6 @@
         font-weight: 600;
         margin-bottom: 1rem;
         font-size: 0.95rem;
-      }
-      
-      .member-bio {
-        color: var(--text-color);
-        font-size: 0.95rem;
-        margin-bottom: 1.5rem;
-        height: 0;
-        overflow: hidden;
-        transition: height 0.3s ease;
-      }
-      
-      .member-bio.active {
-        height: auto;
-        margin-bottom: 1.5rem;
-      }
-      
-      .bio-toggle {
-        background: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 0.6rem 1.2rem;
-        border-radius: 30px;
-        cursor: pointer;
-        font-weight: 500;
-        transition: all 0.3s ease;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-      }
-      
-      .bio-toggle:hover {
-        background: var(--secondary-color);
-        transform: translateY(-2px);
-      }
-      
-      .bio-toggle i {
-        margin-left: 5px;
-        transition: transform 0.3s ease;
-      }
-      
-      .bio-toggle.active i {
-        transform: rotate(180deg);
       }
       
       .social-links {
@@ -232,6 +189,11 @@
         h1 {
           font-size: 2rem;
         }
+        
+        .contact-details {
+          flex-direction: column;
+          gap: 1rem;
+        }
       }
     </style>
   </head>
@@ -246,13 +208,11 @@
       
       <div class="team-container">
         <div class="team-member">
-          <img src="../public/images/IMG_20250402_152225.jpg" alt="Nikhil Kamath" class="member-image">
-          <h3 class="member-name">Nikhil Kamath</h3>
-          <p class="member-position">Co-founder & CFO</p>
-          <div class="member-bio">
-            <p>Nikhil brings over 15 years of financial expertise to our team. With a background in investment banking and venture capital, he ensures our financial strategies align with our growth objectives.</p>
+          <div class="member-icon">
+            <i class="fas fa-code"></i>
           </div>
-          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <h3 class="member-name">Amit Shukla</h3>
+          <p class="member-position">Frontend Developer</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -261,13 +221,11 @@
         </div>
         
         <div class="team-member">
-          <img src="../public/images/IMG_20250402_153107.jpg" alt="Dr. Kailash Nadh" class="member-image">
-          <h3 class="member-name">Dr. Kailash Nadh</h3>
-          <p class="member-position">Chief Technology Officer</p>
-          <div class="member-bio">
-            <p>Dr. Nadh holds a PhD in Computer Science and leads our technology vision. With expertise in AI and machine learning, he drives innovation across all our technical solutions.</p>
+          <div class="member-icon">
+            <i class="fas fa-server"></i>
           </div>
-          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <h3 class="member-name">Ambikeshwar</h3>
+          <p class="member-position">Backend Developer</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-github"></i></a>
@@ -276,13 +234,11 @@
         </div>
         
         <div class="team-member">
-          <img src="../public/images/WhatsApp Image 2025-04-02 at 16.20.56_4003b021.jpg" alt="Venu Madhav" class="member-image">
-          <h3 class="member-name">Venu Madhav</h3>
-          <p class="member-position">Chief Operations Officer</p>
-          <div class="member-bio">
-            <p>Venu oversees our daily operations with a focus on efficiency and scalability. His operational strategies have helped us expand to three new markets in the past year.</p>
+          <div class="member-icon">
+            <i class="fas fa-bug"></i>
           </div>
-          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <h3 class="member-name">Adarsh Rai</h3>
+          <p class="member-position">QA Tester</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-twitter"></i></a>
@@ -291,13 +247,11 @@
         </div>
         
         <div class="team-member">
-          <img src="../public/images/WhatsApp Image 2025-04-02 at 16.22.36_8a2bb900.jpg" alt="Rohit Sharma" class="member-image">
-          <h3 class="member-name">Rohit Sharma</h3>
-          <p class="member-position">Head of Marketing</p>
-          <div class="member-bio">
-            <p>Rohit's creative campaigns have increased our brand awareness by 300% in two years. He specializes in digital marketing strategies that drive engagement and conversions.</p>
+          <div class="member-icon">
+            <i class="fas fa-paint-brush"></i>
           </div>
-          <button class="bio-toggle">Read Bio <i class="fas fa-chevron-down"></i></button>
+          <h3 class="member-name">Ritesh Pandey</h3>
+          <p class="member-position">UI/UX Designer</p>
           <div class="social-links">
             <a href="#"><i class="fab fa-linkedin-in"></i></a>
             <a href="#"><i class="fab fa-instagram"></i></a>
@@ -343,24 +297,5 @@
     </div>
     
     <%- include('partials/footer') %>
-    
-    <script>
-      document.querySelectorAll(".bio-toggle").forEach((button) => {
-        button.addEventListener("click", () => {
-          const memberCard = button.closest('.team-member');
-          const bio = memberCard.querySelector('.member-bio');
-          
-        
-          bio.classList.toggle('active');
-          button.classList.toggle('active');
-          
-          if (bio.classList.contains('active')) {
-            button.innerHTML = 'Hide Bio <i class="fas fa-chevron-up"></i>';
-          } else {
-            button.innerHTML = 'Read Bio <i class="fas fa-chevron-down"></i>';
-          }
-        });
-      });
-    </script>
   </body>
 </html>
