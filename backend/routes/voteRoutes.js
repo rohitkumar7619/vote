@@ -1,5 +1,5 @@
 const express = require("express");
-const Vote = require("../models/Votes");
+const Vote = require("../models/Vote");
 const router = express.Router();
 
 const candidates = ["Alice", "Bob", "Charlie"];
