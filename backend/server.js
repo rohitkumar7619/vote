@@ -1,11 +1,11 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const session = require("express-session");
-const connectDB = require("./config"); // Assuming this is for other configurations
+const connectDB = require("./backend/config"); // Assuming this is for other configurations
 
-const homeRoutes = require("./routes/homeRoutes");
-const authRoutes = require("./routes/authRoutes");
-const voteRoutes = require("./routes/voteRoutes");
+const homeRoutes = require("./backend/routes/homeRoutes");
+const authRoutes = require("./backend/routes/authRoutes");
+const voteRoutes = require("./backend/routes/voteRoutes");
 
 const app = express();
 
@@ -38,6 +38,3 @@ app.use("/", homeRoutes);
 // Server Listening
 const PORT = process.env.PORT || 5000; // Use environment variable for port or fallback to 5000
 app.listen(PORT, () => console.log(`🚀 Server running on port ${PORT}`));
-
-
-// mongodb+srv://amitshukla11130:hAPe98xOtTqfDr6i@cluster0.btxpu.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
