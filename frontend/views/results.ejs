@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Results</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        background: linear-gradient(135deg, #c7c5f4, #776bcc);
+        text-align: center;
+        padding: 20px;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+      .container {
+        background: white;
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        width: 90%;
+        max-width: 500px;
+      }
+      h2 {
+        color: #333;
+        margin-bottom: 20px;
+      }
+      ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      li {
+        background: #f8f9fa;
+        padding: 15px;
+        margin: 10px 0;
+        border-radius: 8px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        font-size: 18px;
+        font-weight: bold;
+        color: #444;
+        display: flex;
+        justify-content: space-between;
+      }
+      a.back-btn {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 12px 25px;
+        background-color: #007bff;
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+        font-size: 16px;
+        font-weight: bold;
+        transition: background 0.3s ease;
+      }
+      a.back-btn:hover {
+        background-color: #0056b3;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="container">
+      <h2>Voting Results</h2>
+      <ul>
+        <% votes.forEach(vote => { %>
+        <li>
+          <span><%= vote._id %></span>
+          <span><%= vote.count %> votes</span>
+        </li>
+        <% }) %>
+      </ul>
+      <a href="/dashboard" class="back-btn">Back to Dashboard</a>
+    </div>
+    <%- include('partials/footer') %>
+  </body>
+</html>
