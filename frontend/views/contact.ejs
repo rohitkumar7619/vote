@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Us</title>
+    <style>
+      body {
+        background: linear-gradient(90deg, #c7c5f4, #776bcc);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        position: relative;
+        padding-bottom: 60px;
+      }
+
+      .team-container {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        padding: 20px;
+      }
+
+      .team-member {
+        text-align: center;
+        max-width: 250px;
+      }
+
+      .team-member img {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+      }
+
+      h3 {
+        margin-top: 10px;
+        font-size: 18px;
+      }
+
+      p {
+        font-size: 14px;
+        color: #555;
+      }
+
+      .bio {
+        display: none;
+        font-size: 14px;
+        margin-top: 10px;
+      }
+
+      .bio-toggle {
+        background: none;
+        border: none;
+        color: #007bff;
+        cursor: pointer;
+        font-size: 14px;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <%- include('partials/navbar') %>
+    <div class="team-container">
+      <div class="team-member">
+        <img src="/images/person1.jpg" alt="Person 1" />
+        <h3>Nikhil Kamath</h3>
+        <p>Co-founder & CFO</p>
+        <button class="bio-toggle">Bio ▼</button>
+        <p class="bio">
+          Nikhil is an astute and experienced investor, leading financial
+          planning at Zerodha. He is an avid reader and enjoys chess.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <img src="/images/person2.jpg" alt="Person 2" />
+        <h3>Dr. Kailash Nadh</h3>
+        <p>CTO</p>
+        <button class="bio-toggle">Bio ▼</button>
+        <p class="bio">
+          Kailash is the chief technology officer, driving innovation and
+          engineering excellence at Zerodha.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <img src="/images/person3.jpg" alt="Person 3" />
+        <h3>Venu Madhav</h3>
+        <p>COO</p>
+        <button class="bio-toggle">Bio ▼</button>
+        <p class="bio">
+          Venu is the chief operations officer, ensuring seamless management and
+          operational efficiency.
+        </p>
+      </div>
+
+      <div class="team-member">
+        <img src="/images/person4.jpg" alt="Person 4" />
+        <h3>Rohit Sharma</h3>
+        <p>Head of Marketing</p>
+        <button class="bio-toggle">Bio ▼</button>
+        <p class="bio">
+          Rohit leads the marketing team, focusing on branding and customer
+          engagement strategies.
+        </p>
+      </div>
+    </div>
+    <%- include('partials/footer') %>
+    <script>
+      document.querySelectorAll(".bio-toggle").forEach((button) => {
+        button.addEventListener("click", () => {
+          const bio = button.nextElementSibling;
+          bio.style.display = bio.style.display === "block" ? "none" : "block";
+          button.textContent =
+            bio.style.display === "block" ? "Bio ▲" : "Bio ▼";
+        });
+      });
+    </script>
+  </body>
+</html>
