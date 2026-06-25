@@ -16,7 +16,7 @@ app.use(express.static("frontend/public"));
 app.use(session({ secret: "secret", resave: false, saveUninitialized: true }));
 
 // MongoDB Connection (Adjust as per your MongoDB URI)
-const MONGO_URI = "mongodb+srv://rohitkumargupta7619853390:DoQkMNR8GzO9xzw9@cluster0.dxspojz.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
+const MONGO_URI = "mongodb+srv://rohitgupta:Ko5vlT0il0t7GbyL@cluster0.wfoie.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0";
 
 mongoose
   .connect(MONGO_URI, {
